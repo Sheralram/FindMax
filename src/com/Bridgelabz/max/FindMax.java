@@ -2,42 +2,31 @@ package com.Bridgelabz.max;
 
 public class FindMax {
 
-    public Integer maxNum(Integer input1, Integer input2, Integer input3){
-        Integer max = input1;
-        if(input2.compareTo(max) > 0)
-            max = input2;
-        if(input3.compareTo(max) > 0)
-            max = input3;
-        System.out.println("maximum of three integer is "+max);
+    public static <T extends Comparable<T>> T getMax(T num1,T num2,T num3){         //Refactor all 3 in one Generic Method
+        T max=num1;
+        if(num2.compareTo(max)>0)
+            max=num2;
+        if(num3.compareTo(max)>0)
+            max=num3;
+        showMaxValue(num1, num2, num3, max);
         return max;
     }
 
-    public Float maxNum(Float input1, Float input2, Float input3){
-        Float max = input1;
-        if(input2.compareTo(max) > 0)
-            max = input2;
-        if(input3.compareTo(max) > 0)
-            max = input3;
-        System.out.println("maximum of three float is "+max);
-        return max;
-    }
 
-    public String maxNum(String input1, String input2, String input3){
-        String max = input1;
-        if(input2.compareTo(max) > 0)
-            max = input2;
-        if(input3.compareTo(max) > 0)
-            max = input3;
-        System.out.println("maximum of three float is "+max);
-        return max;
+    private static <T extends Comparable<T>> void showMaxValue(T num1, T num2, T num3, T max) {
+        System.out.println("the input1 is "+num1+"\ninput2 is "+num2+"\ninput3 is "+num3);
+        System.out.println("Maximum : " + max+"\n");
     }
-
     public static void main(String[] args) {
-        System.out.println("Welcome to Find Maximum using Generics");
-      FindMax maximum=new FindMax();
-        maximum.maxNum(2,5,8);
-        maximum.maxNum(7.5f,9.2f,6.1f);
-        maximum.maxNum("apple", "pineapple" ,"orange");  //ASCII value of uppercase -65 to 90 & lowercase-97 to 122
+        Integer intValue1 = 300 , intValue2 = 900 , intValue3 = 60;
+        Float floatValue1 = 9.3f , floatValue2 = 3.5f , floatValue3 = 8.7f;
+        String stringValue1 = "Mango" , stringValue2 = "Orange" , stringValue3 = "PineApple";
+
+        FindMax maximum=new FindMax();
+        maximum.getMax(intValue1,intValue2,intValue3);
+        maximum.getMax(floatValue1,floatValue2,floatValue3);
+        maximum.getMax(stringValue1,stringValue2,stringValue3);
 
     }
+
 }

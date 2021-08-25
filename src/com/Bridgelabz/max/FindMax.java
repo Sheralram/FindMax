@@ -22,12 +22,22 @@ public class FindMax {
         return max;
     }
 
+    public String maxNum(String input1, String input2, String input3){
+        String max = input1;
+        if(input2.compareTo(max) > 0)
+            max = input2;
+        if(input3.compareTo(max) > 0)
+            max = input3;
+        System.out.println("maximum of three float is "+max);
+        return max;
+    }
 
     public static void main(String[] args) {
         System.out.println("Welcome to Find Maximum using Generics");
       FindMax maximum=new FindMax();
         maximum.maxNum(2,5,8);
         maximum.maxNum(7.5f,9.2f,6.1f);
+        maximum.maxNum("apple", "pineapple" ,"orange");  //ASCII value of uppercase -65 to 90 & lowercase-97 to 122
 
     }
 }
